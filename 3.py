@@ -1,4 +1,6 @@
 from sklearn.linear_model import LinearRegression,LogisticRegression
+import speech_recognition as sr
+import pyttsx3
 from sklearn.tree import DecisionTreeClassifier 
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.neighbors import KNeighborsClassifier
@@ -82,7 +84,7 @@ data.drop("Outcome Variable", axis=1, inplace=True)
 ar1 = data.columns
 ar = ar1[1:]
 print(ar)
-# recog = sr.Recognizer()
+recog = sr.Recognizer()
 X = data.drop("Disease",axis=1)
 Y = data["Disease"]
 
@@ -90,7 +92,7 @@ x_train,x_test,y_train,y_test = train_test_split(X,Y,train_size=0.8,random_state
 model = DecisionTreeClassifier()
 model.fit(x_train,y_train)
 
-# engine = pyttsx3.init()
+engine = pyttsx3.init()
 for i in range(len(ar)):
     if(i+1<5):
         m = "Do you have "+ar[i]+"?"

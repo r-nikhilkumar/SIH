@@ -1,0 +1,2 @@
+1. doctor android app integration
+2. doctor's handwriting recognition

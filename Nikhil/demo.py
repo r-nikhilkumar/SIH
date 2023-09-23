@@ -75,7 +75,7 @@ def listen(m, i):
         listen(m,i)
     
 
-data = pd.read_csv("disease.csv")
+data = pd.read_csv("Nikhil\disease.csv")
 
 s = {"Fever":{"Yes":1,"No":0},"Cough":{"Yes":1,"No":0},"Fatigue":{"Yes":1,"No":0},"Difficulty Breathing":{"Yes":1,"No":0},"Gender":{"Male":1,"Female":0},"Blood Pressure":{"Low":0, "High":1,"Normal":2},"Cholesterol Level":{"Low":0, "High":1,"Normal":2}}
 data.replace(s, inplace=True)

@@ -44,7 +44,7 @@ def listen(m, i):
         pass
     
     try:
-        print("Waiting for your response...")
+        print("Give answer... (Yes/No)?")
         # with sr.Microphone() as src:
            
         #     rec.adjust_for_ambient_noise(source=src)

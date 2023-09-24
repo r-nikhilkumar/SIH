@@ -6,7 +6,7 @@ function emergency() {
     <div style={{display:'flex',alignItems:'center',flexDirection:'column'}}>
       <h1 style={{color:'red'}}>Call 100 </h1>
     </div>
-    <Link to="/login">
+    <Link to="/">
         <button style={{fontSize:'20px',color:'lightblue'}}>HomePage</button>
       </Link>
     </div>

@@ -11,7 +11,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
 
    
-data = pd.read_excel("Nikhil\Specialist.xlsx")
+data = pd.read_excel("Specialist.xlsx")
 
 X = data.drop("specialist", axis=1)
 col = list(X.columns)

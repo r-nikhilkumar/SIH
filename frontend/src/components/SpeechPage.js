@@ -3,7 +3,6 @@ import { useSpeechSynthesis } from 'react-speech-kit';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import doc from '../images/doc1.png';
 
-
 const SpeechPage = () => {
   const [text, setText] = useState(["tell me your symptoms"]);
   const { speak, voices } = useSpeechSynthesis();
@@ -25,8 +24,21 @@ const SpeechPage = () => {
   const Submit = () => {
     setText(transcript)
     console.log({transcript})
-  }
 
+  }
+  const getPre = async  () =>{
+    try {
+      const response = await fetch('http://127.0.0.1:5000/api/data'); // Replace with your API endpoint
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      let result = await response.json();
+      setText(result["message"]);
+      console.log(result["message"])
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  }
 
   
 
@@ -40,6 +52,7 @@ const SpeechPage = () => {
           <p style={{textAlign:'center',color:'blue',fontSize:'50px'}}>Symptoms</p>
           </div>
         <button style={{borderRadius:'50%',aspectRatio:"1/1",width:"100px",backgroundColor:'red'}} onClick={handleSpeak}>Start</button>
+        <button onClick={getPre}>Get prescription</button>
       </div>
       <div style={{margin:'10px',display:'flex',flexDirection:'column'}}>
         <p>Microphone: {listening ? 'on' : 'off'}</p>

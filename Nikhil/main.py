@@ -10,31 +10,16 @@ from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
 
-def sendData(data_send):
-   
- 
-    x = datetime.datetime.now()
-    
-    # Initializing flask app
+def get_data(data1):
     app = Flask(__name__)
     CORS(app, resources={r"/api/*": {"origins": "http://localhost:3000"}})  # Replace with your React app's URL
-    
-    # Route for seeing a data
+
     @app.route('/api/data',methods=['GET'])
-    def get_time():
-    
-        # Returning an api for showing in  reactjs
-        datatosend = {
-            "data" : "data_send"
-        }
-        return jsonify(datatosend)
-    
-    if __name__ == '__main__':
-        app.run(debug=True)
-    
-        
+# Returning an api for showing in  reactjs
+    data2={"message":data1}
+    return data2
 
-
+   
 data = pd.read_excel("Nikhil\Specialist.xlsx")
 # data = data
 
@@ -68,5 +53,7 @@ x_test_cust = [x_test_cust]
 y_test_cust = [""]
 y_predict = model.predict(x_test_cust)
 print(y_predict)
-sendData(y_predict[0])
+get_data(y_predict[0])
 # print(accuracy_score(y_test, y_predict))
+if __name__=="__main__":
+    app.run(debug=True)

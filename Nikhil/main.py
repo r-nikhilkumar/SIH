@@ -19,6 +19,7 @@ def get_data(data1):
     }
     return data2
 
+
    
 data = pd.read_excel("Nikhil\Specialist.xlsx")
 # data = data
@@ -54,4 +55,6 @@ y_test_cust = [""]
 y_predict = model.predict(x_test_cust)
 print(y_predict)
 get_data(y_predict[0])
+if __name__=="__main__":
+    app.run(debug=True)
 # print(accuracy_score(y_test, y_predict))

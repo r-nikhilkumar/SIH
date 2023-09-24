@@ -9,7 +9,7 @@ function HomePage() {
       <h1 className='wh1'>Welcome!</h1>
       <p className='wp1'>This is free online consultation app</p> 
     </div>
-    <Link to="/login">
+    <Link to="/consult">
         <button style={{fontSize:'20px',backgroundColor:'transparent'}}><img src={f1} alt='fingerprint'style={{width:'400px'}} /></button>
       </Link>
     </div>

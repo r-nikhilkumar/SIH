@@ -47,9 +47,10 @@ const SpeechPage = () => {
         <button onClick={SpeechRecognition.stopListening}>Stop Speaking</button>
         <button onClick={resetTranscript}>Reset</button>
         <button onClick={Submit}>Submit</button>
-        <p>{transcript}</p>
+        
       </div>
       </div>
+      <p style={{widht:'90px'}}>{transcript}</p>
     </div>
   );
 };

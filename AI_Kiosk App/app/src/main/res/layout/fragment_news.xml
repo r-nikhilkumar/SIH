@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".newsFrag">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:fontFamily="@font/berkshire_swash"
+        android:gravity="center"
+        android:text="NEWS "
+        android:textColor="#090909"
+        android:textSize="40dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/newsRecycle"
+        android:layout_marginTop="?actionBarSize"/>
+
+
+</FrameLayout>

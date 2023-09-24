@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/aclonica</item>
+        <item>@font/akaya_telivigala</item>
+        <item>@font/amarante</item>
+        <item>@font/amaranth_italic</item>
+        <item>@font/baumans</item>
+        <item>@font/berkshire_swash</item>
+    </array>
+</resources>

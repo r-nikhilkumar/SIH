@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-from flask import Flask
+from flask import Flask, jsonify
 import datetime
 import matplotlib.pyplot as plt
 from sklearn import linear_model, datasets
@@ -23,9 +23,10 @@ def sendData(data_send):
     def get_time():
     
         # Returning an api for showing in  reactjs
-        return {
+        datatosend = {
             'data' : data_send
         }
+        return jsonify(datatosend)
     
     if __name__ == '__main__':
         app.run(debug=True)
@@ -51,22 +52,23 @@ model.fit(x_train, y_train)
 print(len(col))
 arr = []
 
-# print("Tell me all the symptoms you have...")
+print("Tell me all the symptoms you have...")
+sendData("Tell me all the symptoms you have...")
 
-# for i in range(7):
-#     arr.append(input())
-# print(arr)
-# x_test_cust=[]
-# for i in col:
-#     if(i in arr):
-#        x_test_cust.append(1)
-#     else:
-#         x_test_cust.append(0)
-# print(x_test_cust) 
-# x_test_cust = [x_test_cust]
-# # y_test_cust = [""]
+for i in range(7):
+    arr.append(input())
+print(arr)
+x_test_cust=[]
+for i in col:
+    if(i in arr):
+       x_test_cust.append(1)
+    else:
+        x_test_cust.append(0)
+print(x_test_cust) 
+x_test_cust = [x_test_cust]
+# y_test_cust = [""]
 
-# y_predict = model.predict(x_test_cust)
-# print(y_predict)
-sendData("Hii")
-# print(accuracy_score(y_test, y_predict))
+y_predict = model.predict(x_test_cust)
+print(y_predict)
+# sendData("Hii")
+# # print(accuracy_score(y_test, y_predict))

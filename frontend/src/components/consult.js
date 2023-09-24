@@ -1,19 +1,27 @@
 import React, { useState } from 'react';
-import SpeechRecognition, {  useSpeechRecognition,} from 'react-speech-recognition';
+import { useSpeechRecognition } from 'react-speech-recognition';
 import speak from 'speak-tts';
 import doc from '../images/doc1.png';
 
-function TexttoSpeech() {
+function consult() {
   const [text, setText] = useState('');
-  const { transcript, resetTranscript } = useSpeechRecognition();
+  const { transcript, resetTranscript, listening, startListening, stopListening } = useSpeechRecognition();
   const speech = new speak({
     volume: 1,
-    lang: 'en-IN',
+    lang: 'en-US',
     rate: 1,
     pitch: 1,
-    voice: 'Google English India',
+    voice: 'Google UK English Male', // Adjust voice as needed
     splitSentences: true,
   });
+
+  const handleStartListening = () => {
+    startListening();
+  };
+
+  const handleStopListening = () => {
+    stopListening();
+  };
 
   const handleSpeak = () => {
     if (text.trim() !== '') {
@@ -30,13 +38,6 @@ function TexttoSpeech() {
     }
   };
 
-  const handleStartListening = () => {
-    SpeechRecognition.startListening();
-  };
-
-  const handleStopListening = () => {
-    SpeechRecognition.stopListening();
-  };
 
   return (
     <div style={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'space-between'}}>
@@ -51,14 +52,18 @@ function TexttoSpeech() {
           <button onClick={handleSpeak}>Speak</button>
         </div>
         <div style={{margin:'10px',display:'flex',flexDirection:'column'}}>
-          <button onClick={handleStartListening}>Start Listening</button>
-          <button onClick={handleStopListening}>Stop Listening</button>
-          <p>Transcript: {transcript}</p>
-          <button onClick={resetTranscript}>Clear Transcript</button>
+        <button onClick={handleStartListening} disabled={listening}>
+        Start Listening
+      </button>
+      <button onClick={handleStopListening} disabled={!listening}>
+        Stop Listening
+      </button>
+      <p>Transcript: {transcript}</p>
         </div>
         </div>
     </div>
   );
 }
 
-export default TexttoSpeech;
+
+export default consult;

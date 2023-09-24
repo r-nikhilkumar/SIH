@@ -25,7 +25,7 @@ model.fit(x_train, y_train)
 arr = []
 
 print("Tell me all the symptoms you have...")
-for i in range(7):
+for i in range(5):
     arr.append(input())
 print(arr)
 x_test_cust=[]

@@ -35,6 +35,7 @@ const SpeechPage = () => {
       let result = await response.json();
       setText(result["message"]);
       console.log(result["message"])
+      speak({ text });
     } catch (error) {
       console.error('Error fetching data:', error);
     }

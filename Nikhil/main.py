@@ -39,4 +39,16 @@ x_test_cust = [x_test_cust]
 y_test_cust = [""]
 y_predict = model.predict(x_test_cust)
 print(y_predict)
+
+app = Flask(__name__)
+CORS(app, resources={r"/api/*": {"origins": "http://localhost:3000"}})  # Replace with your React app's URL
+@app.route('/api/data',methods=['GET'])
+def get_data():
+    # Returning an api for showing in  reactjs
+    data2={
+        "message":y_predict[0]
+    }
+    return data2
+if __name__ == '__main__':
+    app.run()
 # print(accuracy_score(y_test, y_predict))

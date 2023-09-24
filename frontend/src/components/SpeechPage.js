@@ -53,7 +53,7 @@ const SpeechPage = () => {
           <p style={{textAlign:'center',color:'blue',fontSize:'50px'}}>Symptoms</p>
           </div>
         <button style={{borderRadius:'50%',aspectRatio:"1/1",width:"100px",backgroundColor:'red'}} onClick={handleSpeak}>Start</button>
-        <button onClick={getPre}>Get prescription</button>
+        <button onClick={getPre}>Get advise</button>
       </div>
       <div style={{margin:'10px',display:'flex',flexDirection:'column'}}>
         <p>Microphone: {listening ? 'on' : 'off'}</p>

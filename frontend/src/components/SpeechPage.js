@@ -21,12 +21,12 @@ const SpeechPage = () => {
   const handleSpeak = () => {
     speak({ text });
   };
-  const Submit = () => {
+  const Submit1 = () => {
     setText(transcript)
     console.log({transcript})
 
   }
-  const getPre = async  () =>{
+  const Submit = async  () =>{
     try {
       const response = await fetch('http://127.0.0.1:5000/api/data'); // Replace with your API endpoint
       if (!response.ok) {
@@ -35,7 +35,6 @@ const SpeechPage = () => {
       let result = await response.json();
       setText(result["message"]);
       console.log(result["message"])
-      speak({ text });
     } catch (error) {
       console.error('Error fetching data:', error);
     }
@@ -53,7 +52,7 @@ const SpeechPage = () => {
           <p style={{textAlign:'center',color:'blue',fontSize:'50px'}}>Symptoms</p>
           </div>
         <button style={{borderRadius:'50%',aspectRatio:"1/1",width:"100px",backgroundColor:'red'}} onClick={handleSpeak}>Start</button>
-        <button onClick={getPre}>Get advise</button>
+        <button onClick={handleSpeak}>Get advise</button>
       </div>
       <div style={{margin:'10px',display:'flex',flexDirection:'column'}}>
         <p>Microphone: {listening ? 'on' : 'off'}</p>

@@ -9,7 +9,8 @@ from sklearn.metrics import mean_squared_error, r2_score, confusion_matrix, accu
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
-
+app = Flask(__name__)
+CORS(app, resources={r"/api/*": {"origins": "http://localhost:3000"}})  # Replace with your React app's URL
 def get_data(data1):
     app = Flask(__name__)
     CORS(app, resources={r"/api/*": {"origins": "http://localhost:3000"}})  # Replace with your React app's URL

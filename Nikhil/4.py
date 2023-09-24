@@ -24,6 +24,9 @@ model = RandomForestClassifier(criterion='entropy')
 model.fit(x_train, y_train)
 print(len(col))
 arr = []
+
+print("Tell me all the symptoms you have...")
+
 for i in range(7):
     arr.append(input())
 print(arr)
